@@ -9,7 +9,7 @@ use File::Path qw(make_path);
 
 #Set up options
 my %opt=();
-GetOptions (\%opt,'output=s','source=s','type=s','auth_key=s','force','help','man') or pod2usage(2);
+GetOptions (\%opt,'output=s','source=s','type=s','auth_key=s','evalue=s','force','help','man') or pod2usage(2);
 pod2usage(1) if exists $opt{'help'};
 pod2usage(-verbose=>2) if exists $opt{'man'};
 pod2usage($0.': You must specify at least MGRAST sample id') if @ARGV==0;
@@ -76,15 +76,15 @@ __END__
 
 =head1 Name
 
-download_and_convert.pl - combines abundances of taxa or functions for samples in multiple files into a single file
+download_mgrast_abundance_tables.pl - combines abundances of taxa or functions for samples in multiple files into a single file
 
 =head1 USAGE
 
-download_and_convert.pl [--source [KO,...] --type [function,organism,feature] --no_metadata --auth_key <string> --help --man] <files>
+download_mgrast_abundance_tables.pl [--source [KO,...] --type [function,organism,feature] --no_metadata --auth_key <string> --help --man] <files>
 
 E.g.:
 
-download_and_convert.pl list_of_samples.txt
+download_mgrast_abundance_tables.pl list_of_samples.txt
 
 =head1 OPTIONS
 
