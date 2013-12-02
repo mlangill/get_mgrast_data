@@ -51,7 +51,7 @@ if((!-e $biom_file) || $opt{'force'}){
     print "Skipping (use -f to override) the download of $biom_file.\n";
 }
 
-my $cmd = 'convert_biom.py ';
+my $cmd = 'biom convert ';
 my $new_file=$file.'.tab';
     
 $cmd .= "-b -i $biom_file -o $new_file";
@@ -60,7 +60,7 @@ my $metadata_name='ontology';
 if($opt{'type'} eq 'organism'){
     $metadata_name='taxonomy';
 }
-$cmd.=" --header_key $metadata_name";
+$cmd.=" --header-key $metadata_name";
     
 if((!-e $new_file) || $opt{'force'}){
     print $cmd,"\n";
